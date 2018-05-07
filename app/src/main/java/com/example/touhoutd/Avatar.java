@@ -6,6 +6,8 @@ public class Avatar extends DataSupport {
 
     private int id;
 
+    private String rarity;
+
     private String name;
 
     private int imageIconId;
@@ -34,6 +36,14 @@ public class Avatar extends DataSupport {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getRarity() {
+        return rarity;
+    }
+
+    public void setRarity(String rarity) {
+        this.rarity = rarity;
     }
 
     public String getName() {

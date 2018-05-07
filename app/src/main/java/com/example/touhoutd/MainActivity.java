@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import org.litepal.LitePal;
 import org.litepal.crud.DataSupport;
 
 import java.io.File;
@@ -71,12 +72,14 @@ public class MainActivity extends AppCompatActivity {
         DataAdapter adapter = new DataAdapter(this, avatarIconList);
         recyclerView.setAdapter(adapter);
 
-        /*Log.d(TAG, Integer.toString(R.drawable.wymls));
-        Log.d(TAG, Integer.toString(R.drawable.wymls_lh));
-        Log.d(TAG, Integer.toString(R.drawable.gmdj));
+        //LitePal.getDatabase();
+
+        /*Log.d(TAG, Integer.toString(R.drawable.ld));
+        Log.d(TAG, Integer.toString(R.drawable.qjy));
+        Log.d(TAG, Integer.toString(R.drawable.msdy));
+        Log.d(TAG, Integer.toString(R.drawable.mll));
         Log.d(TAG, Integer.toString(R.drawable.yjyj));
-        Log.d(TAG, Integer.toString(R.drawable.ddlxs));
-        Log.d(TAG, Integer.toString(R.drawable.qjy_lh));*/
+        Log.d(TAG, Integer.toString(R.drawable.sbl));*/
 
         /*Button addData = (Button) findViewById(R.id.add_data);
         addData.setOnClickListener(new View.OnClickListener() {
@@ -158,7 +161,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initAvatarIconList() {
-        List<Avatar> avatars = DataSupport.findAll(Avatar.class);
+        List<Avatar> avatarsSSR =
+                DataSupport.where("rarity == ?", "SSR").find(Avatar.class);
+        List<Avatar> avatarsSR =
+                DataSupport.where("rarity == ?", "SR").find(Avatar.class);
+        List<Avatar> avatarsR =
+                DataSupport.where("rarity == ?", "R").find(Avatar.class);
+        List<Avatar> avatarsN =
+                DataSupport.where("rarity == ?", "N").find(Avatar.class);
+        List<Avatar> avatars = new ArrayList<>();
+        avatars.addAll(avatarsSSR);
+        avatars.addAll(avatarsSR);
+        avatars.addAll(avatarsR);
+        avatars.addAll(avatarsN);
         for (Avatar avatar: avatars) {
             AvatarIcon avatarIcon =
                     new AvatarIcon(avatar.getName(), avatar.getImageIconId(), 113, 113);
