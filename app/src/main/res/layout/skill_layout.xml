@@ -67,6 +67,15 @@
         app:layout_marginTopPercent="2%"
         android:layout_marginLeft="15dp" />
 
+    <ImageView
+        android:id="@+id/pyts_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/image_view"
+        android:layout_marginRight="3dp"
+        android:src="@mipmap/pyts" />
+
     <TextView
         android:id="@+id/skill_view"
         android:layout_width="match_parent"

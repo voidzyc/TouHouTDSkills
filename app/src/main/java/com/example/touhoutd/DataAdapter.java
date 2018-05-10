@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -23,10 +24,12 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView avatariconImage;
+        TextView avatariconName;
 
         public ViewHolder(View view) {
             super(view);
             avatariconImage = (ImageView) view.findViewById(R.id.avataricon_image);
+            avatariconName = view.findViewById(R.id.avataricon_name);
         }
     }
 
@@ -57,6 +60,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         AvatarIcon avataricon = mAvatarIconList.get(position);
         holder.avatariconImage.setImageResource(avataricon.getImageId());
+        holder.avatariconName.setText(avataricon.getName());
 
         LinearLayout.LayoutParams layoutParams =
                 (LinearLayout.LayoutParams) holder.avatariconImage.getLayoutParams();

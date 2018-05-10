@@ -5,26 +5,6 @@
     android:orientation="vertical"
     android:layout_marginBottom="10dp">
 
-    <!--
-    <Button
-        android:id="@+id/add_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ADD DATA"/>
-
-    <Button
-        android:id="@+id/query_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="QUERY DATA"/>
-
-    <Button
-        android:id="@+id/delete_data"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="DELETE DATA"/>
-        -->
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"

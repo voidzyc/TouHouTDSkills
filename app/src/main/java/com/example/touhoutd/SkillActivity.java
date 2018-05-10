@@ -7,6 +7,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,6 +27,7 @@ public class SkillActivity extends AppCompatActivity implements View.OnClickList
     private TextView nameView;
     private TextView skillview;
     private ImageView imageView;
+    private ImageButton imageButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +39,7 @@ public class SkillActivity extends AppCompatActivity implements View.OnClickList
 
         List<Avatar> avatars =
                 DataSupport.where("name == ?", name).find(Avatar.class);
-        Avatar avatar = avatars.get(0);
+        final Avatar avatar = avatars.get(0);
 
         nameView = (TextView) findViewById(R.id.name_view);
         nameView.setText(name);
@@ -66,6 +68,14 @@ public class SkillActivity extends AppCompatActivity implements View.OnClickList
                 (RelativeLayout.LayoutParams) imageView.getLayoutParams();
         layoutParams.height = (int) itemHeight;
         imageView.setLayoutParams(layoutParams);
+
+        imageView = findViewById(R.id.pyts_icon);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                skillview.setText(avatar.getPyts());
+            }
+        });
 
     }
 

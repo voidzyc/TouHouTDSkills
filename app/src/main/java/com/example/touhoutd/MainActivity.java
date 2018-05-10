@@ -63,104 +63,30 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
+        List<Avatar> avatars = DataSupport.select("name").find(Avatar.class);
+        for (Avatar avatar: avatars) {
+            int imageiconid = ImageMapping.getImageMapping(avatar.getName());
+            avatar.setImageIconId(imageiconid);
+            avatar.setImageId(imageiconid + 1);
+            avatar.updateAll("name = ?", avatar.getName());
+        }
+
+        //初始化头像列表
         initAvatarIconList();
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         GridLayoutManager layoutManager = new
                 GridLayoutManager(this, 4);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setPadding(15, 0, 15, 0);
+        recyclerView.setPadding(15, 28, 15, 0);
         DataAdapter adapter = new DataAdapter(this, avatarIconList);
         recyclerView.setAdapter(adapter);
 
         //LitePal.getDatabase();
 
-        /*Log.d(TAG, Integer.toString(R.drawable.ld));
-        Log.d(TAG, Integer.toString(R.drawable.qjy));
-        Log.d(TAG, Integer.toString(R.drawable.msdy));
-        Log.d(TAG, Integer.toString(R.drawable.mll));
-        Log.d(TAG, Integer.toString(R.drawable.yjyj));
-        Log.d(TAG, Integer.toString(R.drawable.sbl));*/
-
-        /*Button addData = (Button) findViewById(R.id.add_data);
-        addData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Avatar avatar = new Avatar();
-                avatar.setName("八云紫");
-                avatar.setImageIconId(R.drawable.byz);
-                avatar.setImageId(R.drawable.byz_lh);
-                avatar.setSkillName1("罔两[八云紫的神陷]");
-                avatar.setSkillDes1("技能：单位目标 \n" +
-                        "影响；敌方单位\n" +
-                        "伤害类型：魔法\n" +
-                        "八云紫操控隙间将目标神隐。\n" +
-                        "\n" +
-                        "[组合提升-博丽灵梦]\n" +
-                        "储存数量提升为5.\n");
-                avatar.setSkillName2("结界[动与静的均衡]");
-                avatar.setSkillDes2("技能：点目标\n" +
-                        "影响；敌方单位\n" +
-                        "伤害类型：魔法\n" +
-                        "八云紫将隙间内的单位投向目标点。对目标点造成伤害和眩晕。\n" +
-                        "\n" +
-                        "[星级相关]\n" +
-                        "伤害：能量点*星级*1\n");
-                avatar.setSkillName3("[深弹幕结界-梦幻泡影-]");
-                avatar.setSkillDes3("技能：点目标 \n" +
-                        "影响；友方单位\n" +
-                        "伤害类型：魔法\n" +
-                        "八云紫引导一秒，传向目标点。\n" +
-                        "3秒后经过一秒引导返回。\n" +
-                        "\n" +
-                        "[组合提升-八云蓝，橙]\n" +
-                        "蓝和橙将会一起被传送。\n");
-                avatar.setSkillName4("废线[废弃车站下车之旅]");
-                avatar.setSkillDes4("技能：无目标 \n" +
-                        "影响；敌方单位\n" +
-                        "伤害类型：纯粹\n" +
-                        "八云紫从隙间中召唤废弃的电车，从出怪口沿道道路进行疾驰。\n" +
-                        "对被电车碰撞到的单位造成伤害并眩晕。电车持续30秒。\n" +
-                        "\n" +
-                        "[星级相关]\n" +
-                        "伤害：能量点*星级*10/每秒\n" +
-                        "\n" +
-                        "[组合提升-八云蓝，橙]\n" +
-                        "增加电车的5节车厢。\n");
-                avatar.save();
-            }
-        });
-
-        Button queryData = (Button) findViewById(R.id.query_data);
-        queryData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                List<Avatar> avatars = DataSupport.findAll(Avatar.class);
-                for (Avatar avatar: avatars) {
-                    Log.d(TAG, avatar.getName());
-                    Log.d(TAG, Integer.toString(avatar.getImageIconId()));
-                    Log.d(TAG, Integer.toString(avatar.getImageId()));
-                    Log.d(TAG, avatar.getSkillName1());
-                    Log.d(TAG, avatar.getSkillDes1());
-                    Log.d(TAG, avatar.getSkillName2());
-                    Log.d(TAG, avatar.getSkillDes2());
-                    Log.d(TAG, avatar.getSkillName3());
-                    Log.d(TAG, avatar.getSkillDes3());
-                    Log.d(TAG, avatar.getSkillName4());
-                    Log.d(TAG, avatar.getSkillDes4());
-                }
-            }
-        });
-
-        Button deleteData = (Button) findViewById(R.id.delete_data);
-        deleteData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DataSupport.deleteAll(Avatar.class, "name == ?", "博丽灵梦");
-            }
-        });*/
     }
 
     private void initAvatarIconList() {
+        //按rarity读取数据库数据
         List<Avatar> avatarsSSR =
                 DataSupport.where("rarity == ?", "SSR").find(Avatar.class);
         List<Avatar> avatarsSR =

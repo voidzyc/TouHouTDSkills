@@ -30,6 +30,8 @@ public class Avatar extends DataSupport {
 
     private String skillDes4;
 
+    private String pyts;
+
     public int getId() {
         return id;
     }
@@ -132,5 +134,13 @@ public class Avatar extends DataSupport {
 
     public void setSkillDes4(String skillDes) {
         this.skillDes4 = skillDes;
+    }
+
+    public String getPyts() {
+        return pyts;
+    }
+
+    public void setPyts(String pyts) {
+        this.pyts = pyts;
     }
 }
