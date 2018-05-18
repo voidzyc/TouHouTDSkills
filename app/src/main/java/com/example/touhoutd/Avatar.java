@@ -32,6 +32,14 @@ public class Avatar extends DataSupport {
 
     private String pyts;
 
+    private int skillunlock1;
+
+    private int skillunlock2;
+
+    private int skillunlock3;
+
+    private int skillunlock4;
+
     public int getId() {
         return id;
     }
@@ -142,5 +150,37 @@ public class Avatar extends DataSupport {
 
     public void setPyts(String pyts) {
         this.pyts = pyts;
+    }
+
+    public int getSkillunlock1() {
+        return skillunlock1;
+    }
+
+    public void setSkillunlock1(int skillunlock1) {
+        this.skillunlock1 = skillunlock1;
+    }
+
+    public int getSkillunlock2() {
+        return skillunlock2;
+    }
+
+    public void setSkillunlock2(int skillunlock2) {
+        this.skillunlock2 = skillunlock2;
+    }
+
+    public int getSkillunlock3() {
+        return skillunlock3;
+    }
+
+    public void setSkillunlock3(int skillunlock3) {
+        this.skillunlock3 = skillunlock3;
+    }
+
+    public int getSkillunlock4() {
+        return skillunlock4;
+    }
+
+    public void setSkillunlock4(int skillunlock4) {
+        this.skillunlock4 = skillunlock4;
     }
 }

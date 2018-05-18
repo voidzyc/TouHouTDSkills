@@ -115,6 +115,10 @@ public class ImageMapping {
                 return R.drawable.wbbd;
             case "丰聪耳神子":
                 return R.drawable.fcesz;
+            case "宫古芳香":
+                return R.drawable.ggfx;
+            case "霍青娥":
+                return R.drawable.hqe;
             default:
                 return 0;
 

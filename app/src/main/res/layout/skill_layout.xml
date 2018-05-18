@@ -16,47 +16,55 @@
         android:gravity="center_horizontal"
         android:textSize="30sp"
         android:singleLine="true"
-        app:layout_marginTopPercent="3%"/>
+        app:layout_marginTopPercent="5%"/>
 
     <Button
         android:id="@+id/button1"
         android:singleLine="true"
         android:textSize="12sp"
+        android:backgroundTint="#E9E9E9"
         app:layout_widthPercent="45%"
         android:layout_height="40dp"
         android:layout_below="@id/name_view"
-        app:layout_marginTopPercent="2%"
-        android:layout_marginLeft="2dp"/>
+        app:layout_marginTopPercent="3%"
+        android:layout_marginLeft="2dp"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/button2"
         android:singleLine="true"
         android:textSize="12sp"
+        android:backgroundTint="#E9E9E9"
         app:layout_widthPercent="45%"
         android:layout_height="40dp"
         android:layout_below="@id/button1"
         app:layout_marginTopPercent="2%"
-        android:layout_marginLeft="2dp"/>
+        android:layout_marginLeft="2dp"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/button3"
         android:singleLine="true"
         android:textSize="12sp"
+        android:backgroundTint="#E9E9E9"
         app:layout_widthPercent="45%"
         android:layout_height="40dp"
         android:layout_below="@id/button2"
         app:layout_marginTopPercent="2%"
-        android:layout_marginLeft="2dp"/>
+        android:layout_marginLeft="2dp"
+        android:gravity="center" />
 
     <Button
         android:id="@+id/button4"
         android:singleLine="true"
         android:textSize="12sp"
+        android:backgroundTint="#E9E9E9"
         app:layout_widthPercent="45%"
         android:layout_height="40dp"
         android:layout_below="@id/button3"
         app:layout_marginTopPercent="2%"
-        android:layout_marginLeft="2dp"/>
+        android:layout_marginLeft="2dp"
+        android:gravity="center" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -67,15 +75,6 @@
         app:layout_marginTopPercent="2%"
         android:layout_marginLeft="15dp" />
 
-    <ImageView
-        android:id="@+id/pyts_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@id/image_view"
-        android:layout_marginRight="3dp"
-        android:src="@mipmap/pyts" />
-
     <TextView
         android:id="@+id/skill_view"
         android:layout_width="match_parent"
@@ -84,6 +83,19 @@
         app:layout_marginTopPercent="5%"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="15dp"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical" />
+
+
+    <Button
+        android:id="@+id/image_button"
+        android:text="培养提升 "
+        android:backgroundTint="#E9E9E9"
+        android:drawableRight="@mipmap/pyts"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_below="@id/image_view"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="2dp"
+        android:gravity="center" />
 
 </android.support.percent.PercentRelativeLayout>
