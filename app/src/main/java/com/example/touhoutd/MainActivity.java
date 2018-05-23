@@ -1,11 +1,11 @@
 package com.example.touhoutd;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import org.litepal.LitePal;
+import com.example.touhoutd.base.BaseActivity;
+
 import org.litepal.crud.DataSupport;
 
 import java.io.File;
@@ -15,7 +15,7 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final String TAG = "MainActivity";
 
@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         List<Avatar> avatars = DataSupport.select("name").find(Avatar.class);
-        for (Avatar avatar: avatars) {
+        for (Avatar avatar : avatars) {
             int imageiconid = ImageMapping.getImageMapping(avatar.getName());
             avatar.setImageIconId(imageiconid);
             avatar.setImageId(imageiconid + 1);
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         avatars.addAll(avatarsSR);
         avatars.addAll(avatarsR);
         avatars.addAll(avatarsN);
-        for (Avatar avatar: avatars) {
+        for (Avatar avatar : avatars) {
             AvatarIcon avatarIcon =
                     new AvatarIcon(avatar.getName(), avatar.getImageIconId(), 113, 113);
             avatarIconList.add(avatarIcon);

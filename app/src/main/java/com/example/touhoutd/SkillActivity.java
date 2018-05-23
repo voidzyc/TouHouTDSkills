@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -13,11 +12,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.touhoutd.base.BaseActivity;
+
 import org.litepal.crud.DataSupport;
 
 import java.util.List;
 
-public class SkillActivity extends AppCompatActivity implements View.OnClickListener {
+public class SkillActivity extends BaseActivity implements View.OnClickListener {
 
     private static final String TAG = "SkillActivity";
 
@@ -134,7 +135,7 @@ public class SkillActivity extends AppCompatActivity implements View.OnClickList
         }
     }
 
-    private Drawable selectUnlock (int num, Drawable image1, Drawable image2, Drawable image3, Drawable image4, Drawable image5) {
+    private Drawable selectUnlock(int num, Drawable image1, Drawable image2, Drawable image3, Drawable image4, Drawable image5) {
         switch (num) {
             case 1:
                 return image1;
