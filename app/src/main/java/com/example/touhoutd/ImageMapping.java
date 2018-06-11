@@ -119,6 +119,16 @@ public class ImageMapping {
                 return R.drawable.ggfx;
             case "霍青娥":
                 return R.drawable.hqe;
+            case "上白泽慧音":
+                return R.drawable.sbzhy;
+            case "梅蒂欣":
+                return R.drawable.mdx;
+            case "桑妮":
+                return R.drawable.sn;
+            case "露娜":
+                return R.drawable.ln;
+            case "斯塔":
+                return R.drawable.st;
             default:
                 return 0;
 
